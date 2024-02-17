@@ -1,0 +1,108 @@
+<mvc:View xmlns:widgets="sap.ui.integration.widgets" controllerName="einvoiceewaybill.controller.masterpage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:f2="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:uxap="sap.uxap"
+    xmlns:web="sap.ui.webc.fiori"
+    xmlns:uitabel="sap.ui.table"
+    xmlns:sapf="sap.f"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:ui="sap.ca.ui"
+    xmlns:tnt="sap.tnt">
+    <App id="app">
+
+        <Page id="masterpage1" title="MasterPage" titleLevel="H1" showNavButton="true" navButtonPress="home" showHeader="false">
+            <content>
+                <core:Fragment fragmentName="einvoiceewaybill.fragment.header" type="XML" />
+                <!-- <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                    <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                        <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                    </VBox>
+                    <VBox justifyContent="End">
+                        <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="Master Page"></ObjectNumber>
+                    </VBox>
+                    <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                        <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                    </VBox>
+                </HBox> -->
+
+                <tnt:ToolPage id="toolPage">
+                    <tnt:header>
+                                <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                                    <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                                        <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                                    </VBox>
+                                    <VBox justifyContent="End">
+                                        <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="Master Page"></ObjectNumber>
+                                    </VBox>
+                                    <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                                        <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                                    </VBox>
+                                </HBox>
+                    </tnt:header>
+                    <tnt:sideContent>
+                        <tnt:SideNavigation expanded="true" itemSelect=".onStartColumnListItemPress">
+                            <tnt:NavigationList >
+                                <tnt:NavigationListItem text="Portal Details (NIC)" icon="sap-icon://folder" enabled="true" expanded="true" key="PortalDetails" />                              
+                                <tnt:NavigationListItem icon="sap-icon://e-learning" text="Portal URL" key="PortalURL" enabled="true" />
+                                <tnt:NavigationListItem icon="sap-icon://attachment-text-file" text="Document Type" key="DocumentType" enabled="true" />
+
+                                 <tnt:NavigationListItem text="User Access Details" icon="sap-icon://accessibility" enabled="true" expanded="true" key="UserAccessDetails" />
+                                <tnt:NavigationListItem icon="sap-icon://tri-state" text="State Code" key="StateCode" enabled="true" />
+                                <tnt:NavigationListItem icon="sap-icon://monitor-payments" text="UOM Code" key="UOMCode" enabled="true" />
+
+                                <!-- <tnt:NavigationListItem icon="sap-icon://heating-cooling" text="Condition Type" key="ConditionType" enabled="true" />
+                                <tnt:NavigationListItem icon="sap-icon://accessibility" text="E-Invoice Authorization" key="E-InvoiceAuthorization" enabled="true" />
+                                <tnt:NavigationListItem icon="sap-icon://accessibility" text="Transporter Details" key="TransporterDetails" enabled="true" />
+                                <tnt:NavigationListItem icon="sap-icon://accessibility" text="E-way Bill Authorization" key="E-wayBillAuthorization" enabled="true" /> -->
+                            </tnt:NavigationList>
+                        </tnt:SideNavigation>
+                    </tnt:sideContent>
+                    <tnt:mainContents>
+                        <NavContainer id="pageContainer" initialPage="page2">
+                            <pages>
+                                <mvc:XMLView id="PortalDetails" viewName="einvoiceewaybill.view.PortalDetails" type="XML" />                                
+
+                                <mvc:XMLView id="PortalURL" viewName="einvoiceewaybill.view.PortalURL" type="XML" />
+
+                                <mvc:XMLView id="DocumentType" viewName="einvoiceewaybill.view.DocumentType" type="XML" />
+
+
+
+                                <mvc:XMLView id="UserAccessDetails" viewName="einvoiceewaybill.view.User_Access_Details" type="XML" />
+
+                                <mvc:XMLView id="StateCode" viewName="einvoiceewaybill.view.State_Code" type="XML" />
+
+                                <mvc:XMLView id="UOMCode" viewName="einvoiceewaybill.view.UOM_Code" type="XML" />
+
+
+
+                                <mvc:XMLView id="ConditionType" viewName="einvoiceewaybill.view.ConditionType" type="XML" />
+
+                                <mvc:XMLView id="E-InvoiceAuthorization" viewName="einvoiceewaybill.view.E-InvoiceAuthorization" type="XML" />
+
+                                <mvc:XMLView id="TransporterDetails" viewName="einvoiceewaybill.view.TransporterDetails" type="XML" />
+
+                                <mvc:XMLView id="EwaybillAuthorization" viewName="einvoiceewaybill.view.EwaybillAuthorization" type="XML" />
+
+                            </pages>
+                        </NavContainer>
+                    </tnt:mainContents>
+                </tnt:ToolPage>
+            </content>
+            <!-- <footer>
+                <Bar >
+                    <contentLeft>
+                        <Button press="home" icon="sap-icon://home"></Button>
+                    </contentLeft>
+                </Bar>
+            </footer> -->
+
+        </Page>
+
+    </App>
+</mvc:View>

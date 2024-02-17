@@ -1,0 +1,101 @@
+<mvc:View xmlns:widgets="sap.ui.integration.widgets" controllerName="einvoiceewaybill.controller.einvoice"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:f2="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <App id="app">
+        <pages>
+            <Page id="masterpage1" title="E-Invoice" titleLevel="H1" showNavButton="true" navButtonPress="home" showHeader="false">
+                <content>
+                     <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                        <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                            <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                        </VBox>
+                        <VBox justifyContent="End">
+                            <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="E-Invoce"></ObjectNumber>
+                        </VBox>
+                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                            <!-- <Image src="images/govlogo.png" height="5rem" width="8rem" class="sapUiSmallMarginTop shadow"></Image> -->
+                            <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                        </VBox>
+                    </HBox>
+                    <VBox alignContent="Center" class="selectrep sapUiSmallMargin">
+                        <Panel class="panel">
+                            <headerToolbar>
+                                <OverflowToolbar height="3rem" class="Panel_header">
+                                    <Title text="Mandatory Input" class="labelselectrep"/>
+                                    <ToolbarSpacer />
+                                    <Button icon="sap-icon://home" press="home" />
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <f:SimpleForm id="SimpleFormChange480_Trial" class="bg_color" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="4" emptySpanL="4">
+                                <f:content >
+                                    <Label text="Company Code" design="Bold" wrapping="true"/>
+                                    <!--	<Input maxLength="4" width="70px" id="companyCode"/>-->
+                                    <ComboBox id="companyCode" width="9rem">
+                                        <core:Item text="" key=""/>
+                                    </ComboBox>
+                                    <Label text="Document No" required="true" design="Bold" wrapping="true"/>
+                                    <!--	<Input maxLength="15" width="170px" class="DocNoLength" id="docnofrom"/>
+										<Input maxLength="15" width="170px" class="DocNoLength" id="docnoto"/>-->
+                                    <ComboBox id="docnofrom" class="DocNoLength" width="9rem">
+                                        <core:Item text="" key=""/>
+                                    </ComboBox>
+                                    <ComboBox id="docnoto" class="DocNoLength" width="9rem">
+                                        <core:Item text="" key=""/>
+                                    </ComboBox>
+                                    <Label text="Billing / Posting Date" required="true" design="Bold" wrapping="true"/>
+                                    <DatePicker width="9rem" id="from" valueFormat="yyyy-MM-ddThh:mm:ss" displayFormat="dd.MM.yyyy" class="DocNoLength"/>
+                                    <DatePicker width="9rem" id="to" valueFormat="yyyy-MM-ddThh:mm:ss" displayFormat="dd.MM.yyyy" class="DocNoLength"/>
+                                    <!--	<Label text="Billing / Posting Date"/>
+								<Input/>-->
+                                    <!--	<Label text="to"/>
+								<DatePicker id="DP2"/>
+								<Label text="to"/>
+								<Input/>
+								<Label text="to"/>
+								<Input/>-->
+                                </f:content>
+                            </f:SimpleForm>
+                            <VBox justifyContent="Center" alignContent="Center" alignItems="Center">
+                                <Label text="Select one option" required="true" design="Bold" class="sapUiSmallMarginTop sapUiLargeMarginBegin" wrapping="true"/>
+                                <HBox class="sapUiSmallMargin sapUiLargeMarginBegin">
+                                    <RadioButtonGroup id="rbg3" columns="4" select="rediobuttons">
+                                        <RadioButton id="RB3-1" text="Generate E - Invoice" select="onOtherRadioPress" useEntireWidth="true" class="rbtext"/>
+                                        <RadioButton id="RB3-2" text="Cancel E - Invoice" select="onCancelPress" class="rbtext"/>
+                                        <RadioButton id="RB3-3" text="Display E - Invoice" select="onOtherRadioPress" class="rbtext"/>
+                                        <RadioButton id="RB3-4" text="Print E - Invoice" select="onOtherRadioPress" class="rbtext"/>
+                                    </RadioButtonGroup>
+                                </HBox>
+                            </VBox>
+                            <VBox justifyContent="Center" alignContent="Center" alignItems="Center">
+                                <f:SimpleForm id="SimpleFormChange480_Trial5" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="4" visible="false">
+                                    <f:content>
+                                        <Label text="Cancel Reason" design="Bold" required="true"/>
+                                        <Select id="cancelReason">
+                                            <core:Item key="1" text="Duplicate"/>
+                                            <core:Item key="2" text="Data Entry Mistake"/>
+                                        </Select>
+                                    </f:content>
+                                </f:SimpleForm>
+                            </VBox>
+                            <VBox alignContent="Center" justifyContent="Center" alignItems="Center">
+                                <Button text="Search" press="onSearch" type="Emphasized" class="sapUiSmallMarginTop"/>
+                            </VBox>
+                        </Panel>
+                    </VBox>
+                </content>
+                <footer>
+                    <Bar >
+                        <contentLeft>
+                            <Button press="home" icon="sap-icon://home"></Button>
+                        </contentLeft>
+                    </Bar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

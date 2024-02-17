@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZODATA_EINVOICE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Es_PortalDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Syid"/>
+                    <PropertyRef Name="Method"/>
+                    <PropertyRef Name="Username"/>
+                    <PropertyRef Name="Password"/>
+                </Key>
+                <Property Name="Syid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="SAP System ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Method" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mode of Process" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Portal User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Portal Password" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Portal Version" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VersionJson" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Payload JSON Version" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxSch" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Tax Schema" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Es_UserAcess" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Syid"/>
+                    <PropertyRef Name="Method"/>
+                    <PropertyRef Name="Bukrs"/>
+                    <PropertyRef Name="J1bbranc"/>
+                </Key>
+                <Property Name="Syid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="SAP System ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Method" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mode of Process" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="J1bbranc" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Business Place" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gstno" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="GST reg. number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Portal User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Portal Password" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Es_PortalUrl" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Sysid"/>
+                    <PropertyRef Name="Method"/>
+                    <PropertyRef Name="Function"/>
+                </Key>
+                <Property Name="Sysid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="SAP System ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Method" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mode of Process" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Function" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Function for ewaybil" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url1" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url2" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url3" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url4" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url5" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url6" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url7" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url8" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url9" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url10" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Portal URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Es_DocType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GovDtyp"/>
+                    <PropertyRef Name="SapDtyp"/>
+                </Key>
+                <Property Name="GovDtyp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Gov. Document Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SapDtyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Billing Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupTyp" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Type of Supply" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zmodule" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Sap Module" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Service" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Service E-invoice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regrev" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tax Liability" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Igstonintra" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Intra State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PortalFlag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Portal Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EwayBill" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vf01Flag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="VF01 Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Es_StateCode" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Land1"/>
+                    <PropertyRef Name="Regio"/>
+                </Key>
+                <Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country/Reg." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regio" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Region" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stcd" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="State Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Es_UOMCode" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GovUom"/>
+                    <PropertyRef Name="SapUom"/>
+                </Key>
+                <Property Name="GovUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Gov. UOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SapUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Actflag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZODATA_EINVOICE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Es_PortalDetailsSet" EntityType="ZODATA_EINVOICE_SRV.Es_PortalDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Es_UserAcessSet" EntityType="ZODATA_EINVOICE_SRV.Es_UserAcess" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Es_PortalUrlSet" EntityType="ZODATA_EINVOICE_SRV.Es_PortalUrl" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Es_DocTypeSet" EntityType="ZODATA_EINVOICE_SRV.Es_DocType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Es_StateCodeSet" EntityType="ZODATA_EINVOICE_SRV.Es_StateCode" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Es_UOMCodeSet" EntityType="ZODATA_EINVOICE_SRV.Es_UOMCode" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="http://106.201.231.86:8090/sap/opu/odata/sap/ZODATA_EINVOICE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://106.201.231.86:8090/sap/opu/odata/sap/ZODATA_EINVOICE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

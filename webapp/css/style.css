@@ -1,0 +1,32 @@
+/* Enter your custom styles here */
+.homeTitle {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC, #8EC5FC, #E0C3FC);
+
+}
+.font {
+    font-size: 28px !important;
+}
+.shadow {
+    filter: drop-shadow(1px 9px 7px grey);
+    margin-bottom: 2rem;
+}
+.panel{
+    box-shadow: skyblue 0px 5px 7px 0px;
+}
+.selectrep {
+  margin-top: 25px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+}
+/* .page1{
+  background-image: url(https://j.gifs.com/X6GDpo@large.gif?download=true);
+} */
+
+.o3rem{
+  font-size: 3rem;
+}
+.splitappmasterpage{
+  height: 83vh;
+}

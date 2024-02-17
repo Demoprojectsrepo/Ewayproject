@@ -1,0 +1,114 @@
+<mvc:View xmlns:core="sap.ui.core"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:m="sap.m" controllerName="einvoiceewaybill.controller.portaldetails"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:semantic="sap.m.semantic" xmlns:ui="sap.ca.ui">
+	<m:Page title="Portal Details (NIC)" backgroundDesign="Transparent" class="pagebackcolor" floatingFooter="true">
+		<m:customHeader>
+			<m:Bar >
+				<m:contentRight>
+					<m:Button icon="sap-icon://decline" press="onBack"></m:Button>
+				</m:contentRight>
+			</m:Bar>
+		</m:customHeader>
+		<m:content>
+			<m:VBox alignContent="Center" class="selectrep">
+				<m:Panel class="panel">
+					<Table id="portalDetails" selectionMode="None" rows="{json_portaldetails>/results}" visibleRowCount="7" filter="filterPrice">
+						<extension>
+							<m:OverflowToolbar>
+								<m:Title id="title" text="Portal Details"/>
+								<m:ToolbarSpacer/>
+									<m:Button text="ADD" press="onAdd"/>
+								<!--	<m:Button type="Emphasized" text="EDIT" press="onEdit1"/>-->
+								<!--	<m:ToolbarSeparator/>-->
+							</m:OverflowToolbar>
+						</extension>
+						<columns>
+							<Column filterProperty="Name" width="8rem">
+								<m:Label text="SAP System ID"/>
+								<template>
+									<m:Text text="{json_portaldetails>Syid}"/>
+								</template>
+							</Column>
+							<Column filterProperty="Category" defaultFilterOperator="StartsWith" width="8rem">
+								<m:Label text="Mode of Process"/>
+								<!--<template>-->
+								<!--	<m:ComboBox></m:ComboBox>-->
+								<!--</template>-->
+								<template>
+									<m:Text text="{json_portaldetails>Method}"/>
+								</template>
+							</Column>
+							<Column width="10rem">
+								<m:Label text="ASP User ID"/>
+								<template>
+									<m:Text text="{json_portaldetails>Username}"/>
+								</template>
+							</Column>
+							<Column width="10rem">
+								<m:Label text="ASP Password"/>
+								<template>
+									<m:Text text="{json_portaldetails>Password}"/>
+								</template>
+							</Column>
+							<Column width="8rem">
+								<m:Label text="Portal Version"/>
+								<template>
+									<m:Text text="{json_portaldetails>Version}"/>
+								</template>
+							</Column>
+							<Column width="12rem">
+								<m:Label text="Payload JSON Version" wrapping="true"/>
+								<template>
+									<m:Text text="{json_portaldetails>VersionJson}"/>
+								</template>
+							</Column>
+							<Column width="8rem">
+								<m:Label text="Tax Schema"/>
+								<template>
+									<m:Text text="{json_portaldetails>TaxSch}"/>
+								</template>
+							</Column>
+							<Column width="9rem">
+								<m:Label text="Active/Deactive"/>
+								<template>
+									<m:CheckBox selected="{= ${json_portaldetails>Actflag} === 'X'}" editable="false" select="onchange"/>
+								</template>
+							</Column>
+							<Column width="10rem">
+								<m:Label text="Edit/Delete"/>
+								<template>
+									<m:HBox>
+										<m:Button icon="sap-icon://edit" type="Transparent" press="onEdit"/>
+										<m:Button icon="sap-icon://delete" type="Transparent" press="Deleteportaldetails"/>
+									</m:HBox>
+								</template>
+							</Column>
+						</columns>
+					</Table>
+				</m:Panel>
+			</m:VBox>
+		</m:content>
+		<m:footer>
+			<m:Bar class="panel">
+			<m:contentLeft>
+				<m:Button icon="sap-icon://sys-back" type="Emphasized" press="onBack"></m:Button>
+			</m:contentLeft>
+				<m:contentRight>
+					<m:Button text="Add" type="Emphasized"></m:Button>
+				</m:contentRight>
+			</m:Bar>
+		</m:footer>
+	</m:Page>
+
+</mvc:View>
+<!--<Text text="{Syid}"/>-->
+<!--<Text text="{Method}"/>-->
+<!--<Text text="{Username}"/>-->
+<!--<Text text="{Password}"/>-->
+<!--<Text text="{Version}"/>-->
+<!--<Text text="{VersionJson}"/>-->
+<!--<Text text="{TaxSch}"/>-->
+<!--<CheckBox selected="{= ${Actflag} === 'X'}" editable="false"/>-->

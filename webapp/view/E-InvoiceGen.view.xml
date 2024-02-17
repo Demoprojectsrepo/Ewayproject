@@ -1,0 +1,176 @@
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+    xmlns:u="sap.ui.unified" controllerName="einvoiceewaybill.controller.einvoicegen"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <App>
+        <pages>
+            <Page title="SD E-Invoice" navButtonPress="onBack" showNavButton="true" backgroundDesign="Transparent" class="pagebackcolor" showHeader="false">
+                <content>
+                    <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                        <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                            <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                        </VBox>
+                        <VBox justifyContent="End">
+                            <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="E-Invoce  Generation"></ObjectNumber>
+                        </VBox>
+                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                            <!-- <Image src="images/govlogo.png" height="5rem" width="8rem" class="sapUiSmallMarginTop shadow"></Image> -->
+                            <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                        </VBox>
+                    </HBox>
+                     <VBox alignContent="Center" class="selectrep">
+                    <Panel id="panel1" class="panel" width="100%">
+                        <table:Table rows="{maindata>/data}" selectionMode="MultiToggle" id="generateEinvoice" ariaLabelledBy="title">
+                            <table:extension>
+                                <OverflowToolbar>
+                                    <Title id="title" text="E-Invoice Generation"/>
+                                    <ToolbarSpacer/>
+                                    <HBox >
+                                        <Button text="Generate E-invoice" press="onPressGenerate"/>
+                                        <Button icon="sap-icon://undo" press="onBack" />
+                                    </HBox>
+                                </OverflowToolbar>
+                            </table:extension>
+                            <table:columns>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Document Number" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>DocNo}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="7rem" hAlign="Center">
+                                    <Label text="Doc Type" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>DocType}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Document Date" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <!-- <Text class="taskdetailtext" text="{ path: 'Fkdat', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy'}}"/> -->
+                                        <Text text="{maindata>DocDate}" wrapping="true"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="9rem" hAlign="Center">
+                                    <Label text="Username" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>UserName}" wrapping="true"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Payer" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>Payer}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="ODN No" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>ODNNo}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Bussiness Place" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>BusinessPlace}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Company Code" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>CompanyCode}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Currency" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>Currency}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Plant" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{maindata>Plant}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column hAlign="Center" width="9rem">
+                                    <Label design="Bold" text="Show More"/>
+                                    <table:template>
+                                        <core:Icon src="sap-icon://show" press="onShowMore"/>
+                                    </table:template>
+                                </table:Column>
+                            </table:columns>
+                        </table:Table>
+                    </Panel>
+                    </VBox>
+                    <VBox alignContent="Center" class="selectrep">
+                    <Panel id="panel2" class="panel" width="100%" visible="false">
+                        <table:Table rows="{newdata>/finalarr}" selectionMode="None" id="generateEinvoice1" ariaLabelledBy="title">
+                            <table:extension>
+                                <OverflowToolbar>
+                                    <Title text="E-Invoice Generated Details"/>
+                                </OverflowToolbar>
+                            </table:extension>
+                            <table:rowSettingsTemplate>
+                                <table:RowSettings highlight="{= ${Icon} === '1' ? 'Error' : 'Success' }"/>
+                            </table:rowSettingsTemplate>
+                            <table:columns>
+                                <table:Column width="6rem" hAlign="Center">
+                                    <Label text="Document Number" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Link text="{newdata>DocNo}" press="onDocumentNoPress" id="docno1"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="35rem" hAlign="Center">
+                                    <Label text="Invoice Reference Number" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>ODNNo}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="9rem" hAlign="Center">
+                                    <Label text="Acknowledgement No" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>DocNo}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="9rem" hAlign="Center">
+                                    <Label text="Acknowledgement Date" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>DocDate}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Active / Cancel status" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>DocType}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Cancel Date" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>DocDate}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Error Code" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>CompanyCode}"/>
+                                    </table:template>
+                                </table:Column>
+                                <table:Column width="8rem" hAlign="Center">
+                                    <Label text="Error Message" wrapping="true" design="Bold"/>
+                                    <table:template>
+                                        <Text text="{newdata>BusinessPlace}"/>
+                                    </table:template>
+                                </table:Column>
+                            </table:columns>
+                        </table:Table>
+                    </Panel>
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

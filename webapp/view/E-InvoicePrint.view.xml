@@ -1,0 +1,150 @@
+<mvc:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="einvoiceewaybill.controller.einvoiceprint"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:table="sap.ui.table"
+	xmlns:u="sap.ui.unified">
+	<App>
+		<pages>
+			<Page title="Print E-Invoice" navButtonPress="onBack" showNavButton="true" backgroundDesign="Transparent" class="pagebackcolor" showHeader="false">
+				<content>
+				   <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                        <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                            <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                        </VBox>
+                        <VBox justifyContent="End">
+                            <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="Print  E-Invoce"></ObjectNumber>
+                        </VBox>
+                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                            <!-- <Image src="images/govlogo.png" height="5rem" width="8rem" class="sapUiSmallMarginTop shadow"></Image> -->
+                            <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                        </VBox>
+                    </HBox>
+					<VBox alignContent="Center" class="selectrep">
+					<Panel class="panel" width="100%">
+						<table:Table rows="{dataprint>/data}" selectionMode="MultiToggle" id="printEinvoice" ariaLabelledBy="title">
+							<table:extension>
+								<OverflowToolbar>
+									<Title id="title" text="E-Invoice Print"/>
+									<ToolbarSpacer/>
+									<HBox >
+										<Button text="Print E-invoice" press="onPrint" type="Emphasized"/>
+										<Button icon="sap-icon://undo" press="onBack" />
+									</HBox>
+								</OverflowToolbar>
+							</table:extension>
+							<table:columns>
+								<table:Column width="6rem" hAlign="Center" sortProperty="Vbeln" filterProperty="Vbeln">
+									<Label text="Document Number" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>DocNo}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="5rem" hAlign="Center">
+									<Label text="Doc Type" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>DocType}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="6rem" hAlign="Center">
+									<Label text="Document Date" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>DocDate}"/>
+										<!-- <Text class="taskdetailtext" text="{ path: 'Fkdat', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy'}}"/> -->
+									</table:template>
+								</table:Column>
+								<!--	<table:Column width="9rem" hAlign="Center">
+									<Label text="Username"/>
+									<table:template>
+										<Text text="{Ernam}" wrapping="true"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="6rem" hAlign="Center">
+									<Label text="Payer"/>
+									<table:template>
+										<Text text="{Kunrg}"/>
+									</table:template>
+								</table:Column>-->
+								<table:Column width="9rem" hAlign="Center">
+									<Label text="ODN No" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>ODNNo}"/>
+									</table:template>
+								</table:Column>
+								<!--	<table:Column width="6rem" hAlign="Center">
+									<Label text="Bussiness Place" wrapping="true"/>
+									<table:template>
+										<Text text="{Bupla}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="6rem" hAlign="Center">
+									<Label text="Company Code" wrapping="true"/>
+									<table:template>
+										<Text text="{Bukrs}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="6rem" hAlign="Center">
+									<Label text="Currency"/>
+									<table:template>
+										<Text text="{Waerk}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="6rem" hAlign="Center">
+									<Label text="Plant"/>
+									<table:template>
+										<Text text="{Werks}"/>
+									</table:template>
+								</table:Column>-->
+								<table:Column width="35rem" hAlign="Center">
+									<Label text="Invoice Reference Number" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>InvoiceRefNo}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="9rem" hAlign="Center">
+									<Label text="Acknowledgement No" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>AckNo}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="9rem" hAlign="Center">
+									<Label text="Acknowledgement Date" wrapping="true" design="Bold"/>
+									<table:template>
+										<!-- <Text id="AckDate" text="{dataprint>AckDate}"/> -->
+										<!-- <Text class="taskdetailtext" text="{ path: 'dataprint>AckDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy'}}"/> -->
+										<Text id="AckDate" class="taskdetailtext" text="{ path: 'dataprint>AckDate', formatter: '.DateFormatter' }" />
+									</table:template>
+								</table:Column>
+								<table:Column width="8rem" hAlign="Center">
+									<Label text="Active / Cancel status" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>ActiveStatus}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="8rem" hAlign="Center">
+									<Label text="Cancel Date" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>CancelDate}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="8rem" hAlign="Center">
+									<Label text="Error Code" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>ErrorCode}"/>
+									</table:template>
+								</table:Column>
+								<table:Column width="8rem" hAlign="Center">
+									<Label text="Error Message" wrapping="true" design="Bold"/>
+									<table:template>
+										<Text text="{dataprint>ErrorMsg}"/>
+									</table:template>
+								</table:Column>
+							</table:columns>
+						</table:Table>
+					</Panel>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

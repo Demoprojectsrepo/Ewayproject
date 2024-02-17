@@ -1,0 +1,114 @@
+<mvc:View xmlns:widgets="sap.ui.integration.widgets" controllerName="einvoiceewaybill.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:f2="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg">
+    <App id="app">
+        <pages>
+            <Page id="page1" showHeader="false" class="page1">
+                <content>
+                    <!-- <core:Fragment fragmentName="einvoiceewaybill.fragment.header" type="XML" /> -->
+                    <HBox wrap="Wrap" justifyContent="SpaceBetween" class="homeTitle">
+                        <VBox class="sapUiSmallMarginBegin" justifyContent="Center" alignContent="Center" alignItems="Center" height="6rem">
+                            <Image src="images/daffodils.png" height="3rem" class=""></Image>
+                        </VBox>
+                        <VBox justifyContent="End">
+                            <ObjectNumber class="sapMObjectNumberLarge shadow sapMObjectNumberLongText" number="E-Invoce  And  E-WayBill"></ObjectNumber>
+                        </VBox>
+                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd" justifyContent="Center" height="6rem">
+                            <!-- <Image src="images/govlogo.png" height="5rem" width="8rem" class="sapUiSmallMarginTop shadow"></Image> -->
+                            <Image src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_Income_Tax_Department_India.png" height="4.5rem" width="8rem" class="sapUiTinyMarginTop"></Image>
+                        </VBox>
+                    </HBox>
+                            <HBox justifyContent="Center" wrap="Wrap">
+                                <GenericTile class="sapUiSmallMargin panel" id="tile1" backgroundImage="images/masterrr.webp" state="{=${state} || 'Loaded'}" tooltip="tooltip" frameType="TwoByOne" press="masterpage" sizeBehavior="Responsive" header="MasterPage">
+                                    <TileContent footer="footer" footerColor="Critical" />
+                                </GenericTile>
+
+                                <GenericTile class="sapUiSmallMargin panel" id="tile2" backgroundImage="images/Gstlogo.png" state="{=${state} || 'Loaded'}" tooltip="tooltip" frameType="TwoByOne" press="einvoice" sizeBehavior="Responsive" header="E-Invoice">
+                                    <TileContent footer="footer" footerColor="Good" />
+                                </GenericTile>
+
+                                <GenericTile class="sapUiSmallMargin panel" id="tile3" backgroundImage="images/ewaybill.jpeg" state="{=${state} || 'Loaded'}" tooltip="tooltip" frameType="TwoByOne" press="ewaybill" sizeBehavior="Responsive" header="E-WayBill">
+                                    <TileContent footer="footer" footerColor="Neutral" />
+                                </GenericTile>
+                            </HBox>
+
+                    <!-- <HBox justifyContent="Center" class="sapUiLargeMarginTop sapUiLargeMarginBegin sapUiLargeMarginEnd" wrap="Wrap">
+                        <Carousel class="sapUiContentPadding sapUiLargeMarginTop sapUiLargeMarginBegin sapUiLargeMarginEnd" loop="true" height="23rem" width="82%">
+                            <Image src="https://www.shutterstock.com/shutterstock/photos/2080680352/display_1500/stock-photo-english-alphabet-made-of-square-wooden-tiles-with-the-english-alphabet-scattered-on-blue-background-2080680352.jpg" alt="Example picture of speakers" height="20rem" />
+                            <Image src="https://www.indiafilings.com/learn/wp-content/uploads/2023/02/E-invoice.png" alt="Example picture of USB flash drive" height="20rem" />
+                            <Image src="https://www.kuapay.com/wp-content/uploads/2021/09/EWayBill.png" alt="Example picture of spotlight" height="20rem" />
+                            <Image src="https://www.shutterstock.com/shutterstock/photos/2080680352/display_1500/stock-photo-english-alphabet-made-of-square-wooden-tiles-with-the-english-alphabet-scattered-on-blue-background-2080680352.jpg" alt="Example picture of screw" height="20rem" />
+                        </Carousel>
+                    </HBox>
+
+
+                    <l:BlockLayout id="blockLayout">
+                        <l:BlockLayoutRow>
+                            <l:BlockLayoutCell id="cell-1" title="MasterPage" backgroundColorSet="ColorSet5" backgroundColorShade="ShadeA">
+                                <Image src="images/master2removedbg.png" alt="Example picture of speakers" height="17rem" />
+                            </l:BlockLayoutCell>
+                            <l:BlockLayoutCell title="E-Invoice" titleAlignment="Center" class="customCellImageBackground" backgroundColorSet="ColorSet5" backgroundColorShade="ShadeB">
+                                <Image src="https://www.indiafilings.com/learn/wp-content/uploads/2023/02/E-invoice.png" alt="Example picture of USB flash drive" height="17rem" width="100%" />
+                            </l:BlockLayoutCell>
+                            <l:BlockLayoutCell id="cell-2" title="E-WayBill" backgroundColorSet="ColorSet5" backgroundColorShade="ShadeC">
+                                <Image src="https://www.kuapay.com/wp-content/uploads/2021/09/EWayBill.png" alt="Example picture of spotlight" height="15.5rem" width="125%" />
+                            </l:BlockLayoutCell>
+                        </l:BlockLayoutRow>
+                    </l:BlockLayout>
+
+
+                    <HBox justifyContent="SpaceBetween" class="sapUiSmallMargin" wrap="Wrap">
+                        <f2:Card height="26rem" width="26rem" class="sapUiSmallMargin">
+                            <f2:content>
+                                <VBox justifyContent="Center">
+                                    <Image src="https://www.shutterstock.com/shutterstock/photos/2080680352/display_1500/stock-photo-english-alphabet-made-of-square-wooden-tiles-with-the-english-alphabet-scattered-on-blue-background-2080680352.jpg" alt="Example picture of speakers" height="19rem" press="masterpage" />
+                                    <html:h2 class="sapUiSmallMargin">MasterPage</html:h2>
+                                </VBox>
+                            </f2:content>
+                        </f2:Card>
+                        <f2:Card height="26rem" width="26rem" class="sapUiSmallMargin">
+                            <f2:content>
+                                <VBox justifyContent="Center">
+                                    <Image src="https://www.indiafilings.com/learn/wp-content/uploads/2023/02/E-invoice.png" alt="Example picture of USB flash drive" height="20rem" width="148%" press="einvoice" />
+                                    <html:h2 class="sapUiSmallMargin">E-Invoice</html:h2>
+                                </VBox>
+                            </f2:content>
+                        </f2:Card>
+                        <f2:Card height="26rem" width="26rem" class="sapUiSmallMargin">
+                            <f2:content>
+                                <VBox justifyContent="Center">
+                                    <Image src="https://www.kuapay.com/wp-content/uploads/2021/09/EWayBill.png" alt="Example picture of spotlight" height="19.5rem" width="116%" press="ewaybill" />
+                                    <html:h2 class="sapUiSmallMargin">E-WayBill</html:h2>
+                                </VBox>
+                            </f2:content>
+                        </f2:Card>
+                    </HBox>
+
+                    <HBox justifyContent="Center" class="sapUiSmallMargin" wrap="Wrap">
+                        <Panel class="sapUiSmallMargin" headerText="MasterPage" height="26rem" width="26rem">
+                            <Image src="images/master2removedbg.png"></Image>
+                        </Panel>
+
+                        <Panel class="sapUiSmallMargin" headerText="E-Invoice" height="26rem" width="26rem">
+                            <Image src="https://www.indiafilings.com/learn/wp-content/uploads/2023/02/E-invoice.png" alt="Example picture of USB flash drive" height="20rem" width="100%" />
+                        </Panel>
+
+                        <Panel class="sapUiSmallMargin" headerText="E-WayBill" height="26rem" width="26rem">
+                            <Image src="https://www.kuapay.com/wp-content/uploads/2021/09/EWayBill.png" alt="Example picture of spotlight" height="19.5rem" width="100%" />
+                        </Panel>
+                    </HBox> -->
+                    <!-- <html:div class="ocean">
+                        <html:div class="wave"></html:div>
+                        <html:div class="wave"></html:div>
+                    </html:div> -->
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

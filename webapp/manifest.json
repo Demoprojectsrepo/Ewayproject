@@ -1,0 +1,390 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "einvoiceewaybill",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.12.3",
+            "toolsId": "ff8df916-b8e6-45a2-9cbd-3547f0083bfb"
+        },
+        "dataSources": {
+            "ZODATA_EINVOICE_SRV": {
+                "uri": "/sap/opu/odata/sap/ZODATA_EINVOICE_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.6",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "einvoiceewaybill.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZODATA_EINVOICE_SRV",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "einvoiceewaybill.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "MasterPage",
+                    "pattern": "MasterPage:",
+                    "target": [
+                        "MasterPage"
+                    ]
+                },
+                {
+                    "name": "E-Invoice",
+                    "pattern": "E-Invoice",
+                    "target": [
+                        "E-Invoice"
+                    ]
+                },
+                {
+                    "name": "E-WayBill",
+                    "pattern": "E-WayBill",
+                    "target": [
+                        "E-WayBill"
+                    ]
+                },
+                {
+                    "name": "E-InvoiceGen",
+                    "pattern": "E-InvoiceGen/{from},{to},{docFrom},{docTo},{companyCode}",
+                    "target": [
+                        "E-InvoiceGen"
+                    ]
+                },
+                {
+                    "name": "E-InvoiceDisplay",
+                    "pattern": "E-InvoiceDisplay/{from},{to},{docFrom},{docTo},{companyCode}",
+                    "target": [
+                        "E-InvoiceDisplay"
+                    ]
+                },
+                {
+                    "name": "E-InvoiceCancel",
+                    "pattern": "E-InvoiceCancel/{from},{to},{docFrom},{docTo},{companyCode},{canrsn}",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "E-InvoiceCancel"
+                    ]
+                },
+                {
+                    "name": "E-InvoicePrint",
+                    "pattern": "E-InvoicePrint/{from},{to},{docFrom},{docTo},{companyCode}",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "E-InvoicePrint"
+                    ]
+                },
+                {
+                    "name": "PortalDetails",
+                    "pattern": "PortalDetails",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "PortalDetails"
+                    ]
+                },
+                {
+                    "name": "UserAccessDetails",
+                    "pattern": "UserAccessDetails",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "UserAccessDetails"
+                    ]
+                },
+                {
+                    "name": "PortalURL",
+                    "pattern": "PortalURL",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "PortalURL"
+                    ]
+                },
+                {
+                    "name": "DocumentType",
+                    "pattern": "DocumentType",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "DocumentType"
+                    ]
+                },
+                {
+                    "name": "StateCode",
+                    "pattern": "StateCode",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "StateCode"
+                    ]
+                },
+                {
+                    "name": "UOMCode",
+                    "pattern": "UOMCode",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "UOMCode"
+                    ]
+                },
+                {
+                    "name": "ConditionType",
+                    "pattern": "ConditionType",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "ConditionType"
+                    ]
+                },
+                {
+                    "name": "E-InvoiceAuthorization",
+                    "pattern": "E-InvoiceAuthorization",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "E-InvoiceAuthorization"
+                    ]
+                },
+                {
+                    "name": "TransporterDetails",
+                    "pattern": "TransporterDetails",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "TransporterDetails"
+                    ]
+                },
+                {
+                    "name": "EwaybillAuthorization",
+                    "pattern": "EwaybillAuthorization",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "EwaybillAuthorization"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "MasterPage": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View2",
+                    "viewName": "MasterPage"
+                },
+                "E-Invoice": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View3",
+                    "viewName": "E-Invoice"
+                },
+                "E-WayBill": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View4",
+                    "viewName": "E-WayBill"
+                },
+                "E-InvoiceGen": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View5",
+                    "viewName": "E-InvoiceGen"
+                },
+                "E-InvoiceDisplay": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View6",
+                    "viewName": "E-InvoiceDisplay"
+                },
+                "E-InvoiceCancel": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View7",
+                    "viewName": "E-InvoiceCancel"
+                },
+                "E-InvoicePrint": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View8",
+                    "viewName": "E-InvoicePrint"
+                },
+                "PortalDetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View9",
+                    "viewName": "PortalDetails"
+                },
+                "UserAccessDetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View10",
+                    "viewName": "UserAccessDetails"
+                },
+                "PortalURL": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View11",
+                    "viewName": "PortalURL"
+                },
+                "DocumentType": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View12",
+                    "viewName": "DocumentType"
+                },
+                "StateCode": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View13",
+                    "viewName": "StateCode"
+                },
+                "UOMCode": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View14",
+                    "viewName": "UOMCode"
+                },
+                "ConditionType": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View15",
+                    "viewName": "ConditionType"
+                },
+                "E-InvoiceAuthorization": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View16",
+                    "viewName": "E-InvoiceAuthorization"
+                },
+                "TransporterDetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View17",
+                    "viewName": "TransporterDetails"
+                },
+                "EwaybillAuthorization": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View18",
+                    "viewName": "EwaybillAuthorization"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "einvoiceewaybill.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}
